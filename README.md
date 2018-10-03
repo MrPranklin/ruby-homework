@@ -1,9 +1,9 @@
 # ruby-homework-repository
-A repository I will use to solve my Ruby homework
+A repository I will use to solve my Ruby homework.
 
-I am following a [Ruby course](https://github.com/monorkin/learn.rb)
+I am following a [Ruby course](https://github.com/monorkin/learn.rb).
 
-## *My favorite programming languages*
+## *My favorite programming languages:*
 * __Ruby__
 * _Java_
 * __C++__
