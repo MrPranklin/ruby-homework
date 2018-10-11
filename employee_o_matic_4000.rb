@@ -1,7 +1,7 @@
 =begin
  TODO Implement the ability to edit an employee in our employees program.
-    x-the edit actions should be e
-    x-editing a user is the same as adding, ask for their full name and id
+    x-the edit actions should be e;
+    editing a user is the same as adding, ask for their full name and id
     x-print the current value for the full name and id before editing
 
 TODO Implement the ability to sort either by first or last name to our employee program
@@ -10,9 +10,10 @@ TODO Implement the ability to sort either by first or last name to our employee 
 
 TODO Implement the ability to insert programmers and office managers in our employee program.
     X-on the add action the user should be able to choose between adding a regular employee e, a programmer p or an office manager o.
-    -on the view action next to programmers print the programming languages they know, next to office managers print their office.
+    x-on the view action next to programmers print the programming languages they know, next to office managers print their office.
     -assume that it's not possible to change an employee's role when editing
     -enable editing of programming language / office fields
+
 =end
 class Employee
   attr_accessor :full_name
@@ -35,7 +36,7 @@ end
 class Programmer < Employee
   attr_accessor :languages
 
-  def initialize(full_name, id, langugages)
+  def initialize(full_name, id, languages)
     super(full_name, id)
     @languages = languages
   end
@@ -67,17 +68,17 @@ def add_employee(employees)
       employee = Employee.new(full_name, id)
 
   elsif position == 'p'
-    puts 'Language: '
-    language = gets.chomp
+    print 'Languages: '
+    languages = gets
     employee = {
         full_name: full_name,
         id: id,
-        language: language
+        languages: languages
     }
-    employee = Programmer.new(full_name, id, language)
+    employee = Programmer.new(full_name, id, languages)
 
   elsif position == 'o'
-    puts 'Office: '
+    print 'Office: '
     office = gets.chomp
     employee = {
         full_name: full_name,
@@ -111,6 +112,7 @@ def edit_employee(employees)
       employee.id = new_id
       return
     end
+    #FIXME make it go back to argument input/exit
     puts 'No matching employee found.'
   end
 end
@@ -134,13 +136,18 @@ def view_employees(employees)
   puts '[List of employees]'
   sort_employess(employees, argument).each do |employee|
     case argument
-    when 'f' then puts "#{employee.firstname} #{employee.surname}, #{employee.id}"
-    when 'l' then puts "#{employee.surname}, #{employee.firstname}, #{employee.id}"
+    when 'f' then print "#{employee.firstname} #{employee.surname}, #{employee.id}"
+    when 'l' then print "#{employee.surname}, #{employee.firstname}, #{employee.id}"
     else
       puts 'Invalid argument input.'
       #FIXME make it go back to argument input
     end
 
+    case employee
+    when OfficeManager then puts ", #{employee.office}"
+    when Programmer then puts ", #{employee.languages}"
+    when Employee then print "\n"
+    end
   end
 end
 
