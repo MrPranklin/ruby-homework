@@ -1,8 +1,8 @@
 =begin
  TODO Implement the ability to edit an employee in our employees program.
-    -the edit actions should be e
-    -editing a user is the same as adding, ask for their full name and id
-    -print the current value for the full name and id before editing
+    x-the edit actions should be e
+    x-editing a user is the same as adding, ask for their full name and id
+    x-print the current value for the full name and id before editing
 
 TODO Implement the ability to sort either by first or last name to our employee program
     x-ask the user if they want to sort by first f or last l name
@@ -92,6 +92,29 @@ def add_employee(employees)
   employees << employee
 end
 
+def edit_employee(employees)
+  puts 'Who do you want to edit?'
+  print 'Full name: '
+  full_name = gets.chomp
+  print 'ID: '
+  id = gets.chomp
+
+  employees.each do |employee|
+    if employee.full_name == full_name && employee.id == id
+      puts '[Selected employee]'
+      puts "#{employee.full_name}, #{employee.id}"
+      print 'New full name: '
+      new_name = gets.chomp
+      print 'New ID: '
+      new_id = gets.chomp
+      employee.full_name = new_name
+      employee.id = new_id
+      return
+    end
+    puts 'No matching employee found.'
+  end
+end
+
 def sort_employess(employees, argument)
   employees.sort_by do |employee|
     case argument
@@ -107,7 +130,7 @@ end
 
 def view_employees(employees)
   puts 'Sort by [f]irst name or [l]ast name? '
-  argument = gets.downcase[0]
+  argument = get_action
   puts '[List of employees]'
   sort_employess(employees, argument).each do |employee|
     case argument
@@ -126,11 +149,12 @@ def quit
   exit
 end
 
-def print_help
+def print_action_help
   puts '[HELP]'
   puts 'Enter one of the following: '
   puts 'a - to add a new employee'
-  puts 'e - to view existing employees'
+  puts 'e - to edit existing employees'
+  puts 'v - to view existing employees'
   puts 'q - to quit the program'
 end
 
@@ -144,10 +168,10 @@ loop do
 
   case action
   when 'a' then add_employee(employees)
-  when 'e' then view_employees(employees)
+  when 'e' then edit_employee(employees)
+  when 'v' then view_employees(employees)
   when 'q' then quit
   else
-    print_help
+    print_action_help
   end
 end
-
