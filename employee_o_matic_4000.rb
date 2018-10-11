@@ -103,17 +103,32 @@ def edit_employee(employees)
       puts '[Selected employee]'
       puts "#{employee.full_name}, #{employee.id}"
       print 'New full name: '
-      new_name = gets.chomp
+      new_full_name = gets.chomp
       print 'New ID: '
       new_id = gets.chomp
-      employee.full_name = new_name
+      if employee == Programmer
+        print 'Change languages? [y/n] '
+        edit = get_action
+        if edit == 'y'
+          print 'New languages: '
+          employee.languages = gets.chomp
+          end
+      elsif employee == OfficeManager
+        print'Change office? [y/n]'
+        edit = get_action
+        if edit == 'y'                #FIXME class speciality edit not working
+          print 'New office: '
+          employee.office = gets.chomp
+        end
+      end
+      employee.full_name = new_full_name
       employee.id = new_id
       return                                #if an edit succeeded, exit method
     end
     puts 'No matching employee found.'
     edit_employee(employees)                #else, call method once again
-  end
-end
+  end                                    #could be done using loop do...end through the whole method,
+end                                         #but it looks weird, I'm not aware if it could cause any problems
 
 def sort_employees(employees, argument)
   employees.sort_by do |employee|
