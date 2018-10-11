@@ -24,8 +24,8 @@ class Employee
     @id = id
   end
 
-  def surname
-    @full_name.split(' ', 2).last
+  def lastname
+    @full_name.split(' ', 2).last   #split into 2 substrings, first and last name, take the latter
   end
 
   def firstname
@@ -57,22 +57,24 @@ def add_employee(employees)
   print 'ID: '
   id = gets.chomp
 
-  print 'Is this person an [e]mployee, [p]rogrammer or an [o]ffice manager?'
-  position = get_action
+  employee = {
+      full_name: full_name,
+      id: id,
+  }
+  position = nil
+  loop do              #ask for input until correct format is entered
+    print 'Is this person an [e]mployee, [p]rogrammer or an [o]ffice manager?'
+    position = get_action
+    break if position == 'e' || position == 'p' || position == 'o'
+  end
 
   if position == 'e'
-      employee = {
-          full_name: full_name,
-          id: id
-      }
       employee = Employee.new(full_name, id)
 
   elsif position == 'p'
     print 'Languages: '
-    languages = gets
-    employee = {
-        full_name: full_name,
-        id: id,
+    languages = gets.chomp
+    employee={
         languages: languages
     }
     employee = Programmer.new(full_name, id, languages)
@@ -81,13 +83,9 @@ def add_employee(employees)
     print 'Office: '
     office = gets.chomp
     employee = {
-        full_name: full_name,
-        id: id,
         office: office
     }
     employee = OfficeManager.new(full_name, id, office)
-  else
-    puts 'Invalid position.'
   end
 
   employees << employee
@@ -110,18 +108,18 @@ def edit_employee(employees)
       new_id = gets.chomp
       employee.full_name = new_name
       employee.id = new_id
-      return
+      return                                #if an edit succeeded, exit method
     end
-    #FIXME make it go back to argument input/exit
     puts 'No matching employee found.'
+    edit_employee(employees)                #else, call method once again
   end
 end
 
-def sort_employess(employees, argument)
+def sort_employees(employees, argument)
   employees.sort_by do |employee|
     case argument
     when 'f' then employee.firstname
-    when 'l' then employee.surname
+    when 'l' then employee.lastname
     end
   end
 end
@@ -130,24 +128,30 @@ def get_action
   return gets.downcase[0]
 end
 
-def view_employees(employees)
-  puts 'Sort by [f]irst name or [l]ast name? '
-  argument = get_action
-  puts '[List of employees]'
-  sort_employess(employees, argument).each do |employee|
-    case argument
-    when 'f' then print "#{employee.firstname} #{employee.surname}, #{employee.id}"
-    when 'l' then print "#{employee.surname}, #{employee.firstname}, #{employee.id}"
-    else
-      puts 'Invalid argument input.'
-      #FIXME make it go back to argument input
-    end
+def print_employee(employee, argument)
+  case argument
+  when 'f' then print "#{employee.firstname} #{employee.lastname}, #{employee.id}"
+  when 'l' then print "#{employee.lastname}, #{employee.firstname}, #{employee.id}"
+  end
 
-    case employee
-    when OfficeManager then puts ", #{employee.office}"
-    when Programmer then puts ", #{employee.languages}"
-    when Employee then print "\n"
-    end
+  case employee
+  when OfficeManager then puts ", #{employee.office}"
+  when Programmer then puts ", #{employee.languages}"
+  when Employee then print "\n"
+  end
+end
+
+def view_employees(employees)
+  argument = nil
+  loop do         #ask for input until correct format is entered
+    puts 'Sort by [f]irst name or [l]ast name? '
+    argument = get_action
+    break if argument == 'f' || argument == 'l'
+  end
+
+  puts '[List of employees]'
+  sort_employees(employees, argument).each do |employee|
+    print_employee(employee, argument)
   end
 end
 
@@ -170,7 +174,7 @@ puts "Employee-o-matic 4000"
 employees = []
 
 loop do
-  print "What do you want to do? "
+  print 'What do you want to do? '
   action = get_action
 
   case action
