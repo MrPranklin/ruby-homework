@@ -25,7 +25,7 @@ class Employee
   end
 
   def lastname
-    @full_name.split(' ', 2).last   #split into 2 substrings, first and last name, take the latter
+    @full_name.split(' ', 2).last       #split into 2 substrings, first and last name, take the latter
   end
 
   def firstname
@@ -50,8 +50,8 @@ class OfficeManager < Employee
   end
 end
 
-def add_employee(employees)
-  puts '[Add an employee]'
+def add_employee(employees)             #      adds an employee to array
+  puts '[Add an employee]'              #param +employees+ array of employees
   print 'Full name: '
   full_name = gets.chomp
   print 'ID: '
@@ -91,8 +91,8 @@ def add_employee(employees)
   employees << employee
 end
 
-def edit_employee(employees)
-  puts 'Who do you want to edit?'
+def edit_employee(employees)                #      edits employees
+  puts 'Who do you want to edit?'           #param +employees+ array of existing employees
   print 'Full name: '
   full_name = gets.chomp
   print 'ID: '
@@ -127,7 +127,7 @@ def edit_employee(employees)
     end
     puts 'No matching employee found.'
     edit_employee(employees)                #else, call method once again
-  end                                       #could be done using loop do...end through the whole method,
+  end                                       #it could be done using loop do...end through the whole method,
 end                                         #but it looks weird, I'm not aware if it could cause any problems
 
 def sort_employees(employees, argument)
@@ -145,9 +145,9 @@ end
 
 def print_employee(employee, argument)
   case argument
-  when 'f' then print "#{employee.firstname} #{employee.lastname}, #{employee.id}"
-  when 'l' then print "#{employee.lastname}, #{employee.firstname}, #{employee.id}"
-  end
+  when 'f' then print "#{employee.firstname} #{employee.lastname}, #{employee.id}"          #      prints an employee in "first/last name, last/first name, id" format
+  when 'l' then print "#{employee.lastname}, #{employee.firstname}, #{employee.id}"         #param +employee+ employee with according hash you want printed
+  end                                                                                           #param +argument+ if 'f' then first way of printing is used, if 'l' the other way is used
 
   case employee
   when OfficeManager then puts ", #{employee.office}"
@@ -158,12 +158,11 @@ end
 
 def view_employees(employees)
   argument = nil
-  loop do         #ask for input until correct format is entered
+  loop do                                                             #ask for input until correct format is entered
     puts 'Sort by [f]irst name or [l]ast name? '
     argument = get_action
-    break if argument == 'f' || argument == 'l'
-  end
-
+    break if argument == 'f' || argument == 'l'                       #      prints all employees
+  end                                                                 #param +employees+ array of employees you want to print
   puts '[List of employees]'
   sort_employees(employees, argument).each do |employee|
     print_employee(employee, argument)
