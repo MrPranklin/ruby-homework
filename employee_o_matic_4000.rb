@@ -11,8 +11,8 @@ TODO Implement the ability to sort either by first or last name to our employee 
 TODO Implement the ability to insert programmers and office managers in our employee program.
     X-on the add action the user should be able to choose between adding a regular employee e, a programmer p or an office manager o.
     x-on the view action next to programmers print the programming languages they know, next to office managers print their office.
-    -assume that it's not possible to change an employee's role when editing
-    -enable editing of programming language / office fields
+    x-assume that it's not possible to change an employee's role when editing
+    x-enable editing of programming language / office fields
 
 =end
 class Employee
@@ -116,7 +116,7 @@ def edit_employee(employees)
       elsif employee.is_a?(OfficeManager)
         print'Change office? [y/n]'
         edit = get_action
-        if edit == 'y'                       #FIXME class speciality edit not working
+        if edit == 'y'
           print 'New office: '
           employee.office = gets.chomp
         end
