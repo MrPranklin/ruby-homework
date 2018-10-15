@@ -1,20 +1,3 @@
-=begin
- TODO Implement the ability to edit an employee in our employees program.
-    x-the edit actions should be e;
-    editing a user is the same as adding, ask for their full name and id
-    x-print the current value for the full name and id before editing
-
-TODO Implement the ability to sort either by first or last name to our employee program
-    x-ask the user if they want to sort by first f or last l name
-    x-print the sorted list depending on the user's action
-
-TODO Implement the ability to insert programmers and office managers in our employee program.
-    X-on the add action the user should be able to choose between adding a regular employee e, a programmer p or an office manager o.
-    x-on the view action next to programmers print the programming languages they know, next to office managers print their office.
-    x-assume that it's not possible to change an employee's role when editing
-    x-enable editing of programming language / office fields
-
-=end
 class Employee
   attr_accessor :full_name
   attr_accessor :id
@@ -50,8 +33,8 @@ class OfficeManager < Employee
   end
 end
 
-def add_employee(employees)             #      adds an employee to array
-  puts '[Add an employee]'              #param +employees+ array of employees
+def add_employee(employees)               #      adds an employee to array
+  puts '[Add an employee]'                #param +employees+ array of employees
   print 'Full name: '
   full_name = gets.chomp
   print 'ID: '
@@ -62,7 +45,7 @@ def add_employee(employees)             #      adds an employee to array
       id: id,
   }
   position = nil
-  loop do              #ask for input until correct format is entered
+  loop do                                 #ask for input until correct format is entered
     print 'Is this person an [e]mployee, [p]rogrammer or an [o]ffice manager?'
     position = get_action
     break if position == 'e' || position == 'p' || position == 'o'
@@ -107,18 +90,16 @@ def edit_employee(employees)                #      edits employees
       print 'New ID: '
       new_id = gets.chomp
       if employee.is_a?(Programmer)
-        print 'Change languages? [y/n] '
-        edit = get_action
-        if edit == 'y'
-          print 'New languages: '
-          employee.languages = gets.chomp
-          end
+        print 'New languages: '
+        new_language = gets.chomp
+        if new_language.length > 0
+          employee.languages = new_language
+        end
       elsif employee.is_a?(OfficeManager)
-        print'Change office? [y/n]'
-        edit = get_action
-        if edit == 'y'
-          print 'New office: '
-          employee.office = gets.chomp
+        print 'New office: '
+        new_office = gets.chomp
+        if new_office.length > 0
+          employee.office = new_office
         end
       end
       employee.full_name = new_full_name

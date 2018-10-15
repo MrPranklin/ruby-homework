@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11d5ed31-98ea-43d7-b416-35b14161dd86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tic-tac-toe.rb" beforeDir="false" afterPath="$PROJECT_DIR$/tic-tac-toe.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee_o_matic_4000.rb" beforeDir="false" afterPath="$PROJECT_DIR$/employee_o_matic_4000.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,14 +12,14 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ruby_homework@hash.rcov" NAME="hash Coverage Results" MODIFIED="1539274601314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
-    <SUITE FILE_PATH="coverage/ruby_homework@employee_o_matic_4000.rcov" NAME="employee_o_matic_4000 Coverage Results" MODIFIED="1539613686372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
+    <SUITE FILE_PATH="coverage/ruby_homework@employee_o_matic_4000.rcov" NAME="employee_o_matic_4000 Coverage Results" MODIFIED="1539623074715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
     <SUITE FILE_PATH="coverage/proba@hello_world.rcov" NAME="guessing_game Coverage Results" MODIFIED="1539267050946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
     <SUITE FILE_PATH="coverage/ruby_homework@arrays.rcov" NAME="arrays Coverage Results" MODIFIED="1539273977493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
     <SUITE FILE_PATH="coverage/ruby_homework@inheritance.rcov" NAME="inheritance Coverage Results" MODIFIED="1539283825575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
     <SUITE FILE_PATH="coverage/ruby_homework@vote_o_mat_3000.rcov" NAME="vote_o_mat_3000 Coverage Results" MODIFIED="1539268185771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
     <SUITE FILE_PATH="coverage/ruby_homework@classes.rcov" NAME="classes Coverage Results" MODIFIED="1539281181101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
     <SUITE FILE_PATH="coverage/ruby_homework@checkDataType.rcov" NAME="checkDataType Coverage Results" MODIFIED="1539622438932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
-    <SUITE FILE_PATH="coverage/ruby_homework@tic_tac_toe.rcov" NAME="tic-tac-toe Coverage Results" MODIFIED="1539622621899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
+    <SUITE FILE_PATH="coverage/ruby_homework@tic_tac_toe.rcov" NAME="tic-tac-toe Coverage Results" MODIFIED="1539622820941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ruby-homework" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-744329368">
@@ -48,12 +48,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="rb" value="13205" />
+          <entry key="rb" value="13419" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="13205" />
+          <entry key="Ruby" value="13419" />
         </counts>
       </usages-collector>
     </session>
@@ -96,16 +96,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/employee_o_matic_4000.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-268">
-              <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+            <state relative-caret-position="360">
+              <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tic-tac-toe.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="574">
@@ -164,9 +164,9 @@
         <option value="$PROJECT_DIR$/Employee-o-matic-4000.rb" />
         <option value="$PROJECT_DIR$/classes.rb" />
         <option value="$PROJECT_DIR$/inheritance.rb" />
-        <option value="$PROJECT_DIR$/employee_o_matic_4000.rb" />
         <option value="$PROJECT_DIR$/checkDataType.rb" />
         <option value="$PROJECT_DIR$/tic-tac-toe.rb" />
+        <option value="$PROJECT_DIR$/employee_o_matic_4000.rb" />
       </list>
     </option>
   </component>
@@ -220,7 +220,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Ruby.tic-tac-toe">
+  <component name="RunManager" selected="Ruby.employee_o_matic_4000">
     <configuration name="checkDataType" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="ruby-homework" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
@@ -320,9 +320,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Ruby.employee_o_matic_4000" />
         <item itemvalue="Ruby.tic-tac-toe" />
         <item itemvalue="Ruby.checkDataType" />
-        <item itemvalue="Ruby.employee_o_matic_4000" />
         <item itemvalue="Ruby.inheritance" />
         <item itemvalue="Ruby.classes" />
       </list>
@@ -351,23 +351,22 @@
       <workItem from="1539361948721" duration="288000" />
       <workItem from="1539376351517" duration="1059000" />
       <workItem from="1539382663944" duration="742000" />
-      <workItem from="1539613636602" duration="9116000" />
+      <workItem from="1539613636602" duration="9412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35306000" />
+    <option name="totallyTimeSpent" value="35602000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18483675" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.19517314" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4994664" weight="0.2099567" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4994664" visible="true" weight="0.2099567" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -375,7 +374,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4994664" visible="true" weight="0.20562771" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4994664" weight="0.20562771" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053364" side_tool="true" weight="0.32843652" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -433,13 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/employee_o_matic_4000.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268">
-          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/checkDataType.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -451,6 +443,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
           <caret line="88" column="3" lean-forward="true" selection-start-line="88" selection-start-column="3" selection-end-line="88" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/employee_o_matic_4000.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
         </state>
       </provider>
     </entry>
