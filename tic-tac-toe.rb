@@ -37,11 +37,6 @@ def isWin(playerName, playingBoard)
 end
 
 def isValid(selection, playingBoard)                  #checks if the chosen field isn't already occupied
-  if selection == nil
-    print "ERR: can't get selection"
-    exit(1)
-  end
-
   i = selection / 3
   j = selection % 3
 
@@ -85,7 +80,7 @@ playingBoard = [[0,1,2], [3,4,5], [6,7,8]]
 playerName = ['O', 'X']
 
 loop do                                                   #switches between 'O' and 'X' until the board is full
-  playerTurn(playerName[n % 2], playingBoard)
+  playerTurn(playerName[n%2], playingBoard)
   n += 1
   if n > 8
     print"Draw!"
