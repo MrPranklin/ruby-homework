@@ -8,14 +8,15 @@ def printBoard(playingBoard)
   print "\n"
 end
 
-def getInput                                           #scans for input, checks if it fits number range
-  selection = nil
+def getInput                                            #scans for input, checks if it is a number and if it fits number range
   loop do
-    selection = gets.chomp.to_i
-    break if(selection >= 0 && selection <= 8)
-    print "Input must be [0,8], please try again: "
+    selection = Integer(gets) rescue false
+    if selection && selection >= 0 && selection <= 8
+        return selection
+    else
+      print "Input must be a number [0,8], please try again: "
+    end
   end
-  return selection
 end
 
 def isWin(playerName, playingBoard)
