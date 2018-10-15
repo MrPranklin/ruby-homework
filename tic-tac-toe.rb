@@ -8,12 +8,12 @@ def printBoard(playingBoard)
   print "\n"
 end
 
-def getInput
+def getInput                                           #scans for input, checks if it fits number range
   selection = nil
   loop do
     selection = gets.chomp.to_i
-    break if(selection > 0 && selection < 10)
-    print "Input must be [1,9], please try again: "
+    break if(selection >= 0 && selection <= 8)
+    print "Input must be [0,8], please try again: "
   end
   return selection
 end
@@ -35,13 +35,12 @@ def isWin(playerName, playingBoard)
   return false
 end
 
-def isValid(selection, playingBoard)
+def isValid(selection, playingBoard)                  #checks if the chosen field isn't already occupied
   if selection == nil
     print "ERR: can't get selection"
     exit(1)
   end
 
-  selection -= 1
   i = selection / 3
   j = selection % 3
 
@@ -52,15 +51,14 @@ def isValid(selection, playingBoard)
   end
 end
 
-def addMove(selection, playerName, playingBoard)
-  selection -= 1
+def addMove(selection, playerName, playingBoard)      #adds players mark to chosen field
   i = selection / 3
   j = selection % 3
   playingBoard[i][j] = playerName
-  puts "Set '#{playerName}' to #{selection+1}"
+  puts "Set '#{playerName}' to #{selection}"
 end
 
-def playerTurn(playerName, playingBoard)
+def playerTurn(playerName, playingBoard)              #main function
   printBoard(playingBoard)
   print "Player '#{playerName}' turn.\nWhere do you want to put an '#{playerName}'? [1-9]: "
 
@@ -81,11 +79,15 @@ def playerTurn(playerName, playingBoard)
   end
 end
 
-n = 0
-playingBoard = [[1,2,3], [4,5,6], [7,8,9]]
-playerName = ['X', 'O']
+n = 0                                                     #intializing necessary variables
+playingBoard = [[0,1,2], [3,4,5], [6,7,8]]
+playerName = ['O', 'X']
 
-loop do
-  playerTurn(playerName[n], playingBoard)
-  n = 1-n
+loop do                                                   #switches between 'O' and 'X' until the board is full
+  playerTurn(playerName[n % 2], playingBoard)
+  n += 1
+  if n > 8
+    print"Draw!"
+    exit(1)
+  end
 end
