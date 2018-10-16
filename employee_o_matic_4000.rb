@@ -40,15 +40,15 @@ def add_employee(employees)               #      adds an employee to array
   print 'ID: '
   id = gets.chomp
 
-  employee = {
-      full_name: full_name,
-      id: id,
-  }
   position = nil
   loop do                                 #ask for input until correct format is entered
     print 'Is this person an [e]mployee, [p]rogrammer or an [o]ffice manager?'
     position = get_action
-    break if position == 'e' || position == 'p' || position == 'o'
+    case position
+    when 'e' then break
+    when 'p' then break
+    when 'o' then break
+    end
   end
 
   if position == 'e'
@@ -57,17 +57,11 @@ def add_employee(employees)               #      adds an employee to array
   elsif position == 'p'
     print 'Languages: '
     languages = gets.chomp
-    employee={
-        languages: languages
-    }
     employee = Programmer.new(full_name, id, languages)
 
   elsif position == 'o'
     print 'Office: '
     office = gets.chomp
-    employee = {
-        office: office
-    }
     employee = OfficeManager.new(full_name, id, office)
   end
 
@@ -81,35 +75,35 @@ def edit_employee(employees)                #      edits employees
   print 'ID: '
   id = gets.chomp
 
-  employees.each do |employee|
-    if employee.full_name == full_name && employee.id == id
+  employee = employees.find{|employee| employee.full_name == full_name && employee.id == id}
+  if employee != nil
       puts '[Selected employee]'
       puts "#{employee.full_name}, #{employee.id}"
       print 'New full name: '
       new_full_name = gets.chomp
       print 'New ID: '
       new_id = gets.chomp
-      if employee.is_a?(Programmer)
-        print 'New languages: '
-        new_language = gets.chomp
-        if new_language.length > 0
-          employee.languages = new_language
-        end
-      elsif employee.is_a?(OfficeManager)
+      if employee.is_a?(OfficeManager)
         print 'New office: '
         new_office = gets.chomp
         if new_office.length > 0
           employee.office = new_office
         end
+      elsif employee.is_a?(Programmer)
+        print 'New languages: '
+        new_languages = gets.chomp
+        if new_languages.length > 0
+          employee.languages = new_languages
+        end
       end
       employee.full_name = new_full_name
       employee.id = new_id
       return                                #if an edit succeeded, exit method
-    end
+  end
     puts 'No matching employee found.'
     edit_employee(employees)                #else, call method once again
-  end                                       #it could be done using loop do...end through the whole method,
-end                                         #but it looks weird, I'm not aware if it could cause any problems
+     end                                    #it could be done using loop do...end through the whole method,
+                                            #but it looks weird, I'm not aware if it could cause any problems
 
 def sort_employees(employees, argument)
   employees.sort_by do |employee|
@@ -131,8 +125,8 @@ def print_employee(employee, argument)
   end                                                                                           #param +argument+ if 'f' then first way of printing is used, if 'l' the other way is used
 
   case employee
-  when OfficeManager then puts ", #{employee.office}"
-  when Programmer then puts ", #{employee.languages}"
+  when OfficeManager then puts ", office: #{employee.office}"
+  when Programmer then puts ", language: #{employee.languages}"
   when Employee then print "\n"
   end
 end

@@ -1,14 +1,14 @@
-def printBoard(playingBoard)
+def print_board(playing_board)
   for i in 0...3
     for j in 0...3
-      print "[ #{playingBoard[i][j]} ] "
+      print "[ #{playing_board[i][j]} ] "
     end
     print"\n"
   end
   print "\n"
 end
 
-def getInput                                            #scans for input, checks if it is a number and if it fits number range
+def get_input #scans for input, checks if it is a number and if it fits number range
   loop do
     selection = Integer(gets) rescue false
     if selection && selection >= 0 && selection <= 8
@@ -19,56 +19,56 @@ def getInput                                            #scans for input, checks
   end
 end
 
-def isWin(playerName, playingBoard)
+def is_win(player_name, playing_board)
   for i in 0...3
-    if (playingBoard[i][0] == playingBoard[i][1] &&  playingBoard[i][1] == playingBoard[i][2] && playingBoard[i][0] == playerName)
+    if (playing_board[i][0] == playing_board[i][1] &&  playing_board[i][1] == playing_board[i][2] && playing_board[i][0] == player_name)
       return true
-    elsif (playingBoard[0][i] == playingBoard[1][i] &&  playingBoard[1][i] == playingBoard[2][i] && playingBoard[0][i] == playerName)
+    elsif (playing_board[0][i] == playing_board[1][i] &&  playing_board[1][i] == playing_board[2][i] && playing_board[0][i] == player_name)
       return true
     end
 
-    if (playingBoard[0][0] == playingBoard[1][1] &&  playingBoard[1][1] == playingBoard[2][2] && playingBoard[0][0] == playerName)
+    if (playing_board[0][0] == playing_board[1][1] &&  playing_board[1][1] == playing_board[2][2] && playing_board[0][0] == player_name)
       return true
-    elsif (playingBoard[2][0] == playingBoard[1][1] &&  playingBoard[1][1] == playingBoard[2][0] && playingBoard[2][0] == playerName)
+    elsif (playing_board[2][0] == playing_board[1][1] &&  playing_board[1][1] == playing_board[2][0] && playing_board[2][0] == player_name)
       return true
     end                 #short enough for me to be too lazy to bother with loops
   end
   return false
 end
 
-def isValid(selection, playingBoard)                  #checks if the chosen field isn't already occupied
+def is_valid(selection, playing_board)                  #checks if the chosen field isn't already occupied
   i = selection / 3
   j = selection % 3
 
-  if playingBoard[i][j].is_a?(Integer)
+  if playing_board[i][j].is_a?(Integer)
     return true
   else
     return false
   end
 end
 
-def addMove(selection, playerName, playingBoard)      #adds players mark to chosen field
+def add_move(selection, player_name, playing_board)      #adds players mark to chosen field
   i = selection / 3
   j = selection % 3
-  playingBoard[i][j] = playerName
-  puts "Set '#{playerName}' to #{selection}"
+  playing_board[i][j] = player_name
+  puts "Set '#{player_name}' to #{selection}"
 end
 
-def playerTurn(playerName, playingBoard)              #main function
-  printBoard(playingBoard)
-  print "Player '#{playerName}' turn.\nWhere do you want to put an '#{playerName}'? [1-9]: "
+def player_turn(player_name, playing_board)              #main function
+  print_board(playing_board)
+  print "Player '#{player_name}' turn.\nWhere do you want to put an '#{player_name}'? [1-9]: "
 
   selection = nil
   loop do
-    selection = getInput
-    break if(isValid(selection, playingBoard))
+    selection = get_input
+    break if(is_valid(selection, playing_board))
     print "Field taken, try a different one: "
   end
 
-  addMove(selection, playerName, playingBoard)
+  add_move(selection, player_name, playing_board)
 
-  if isWin(playerName, playingBoard)
-    puts "Congratulations! Player '#{playerName}' wins!"
+  if is_win(player_name, playing_board)
+    puts "Congratulations! Player '#{player_name}' wins!"
     exit(1)
   else
     return
@@ -76,11 +76,11 @@ def playerTurn(playerName, playingBoard)              #main function
 end
 
 n = 0                                                     #intializing necessary variables
-playingBoard = [[0,1,2], [3,4,5], [6,7,8]]
-playerName = ['O', 'X']
+playing_board = [[0,1,2], [3,4,5], [6,7,8]]
+player_name = ['O', 'X']
 
 loop do                                                   #switches between 'O' and 'X' until the board is full
-  playerTurn(playerName[n%2], playingBoard)
+  player_turn(player_name[n%2], playing_board)
   n += 1
   if n > 8
     print"Draw!"
