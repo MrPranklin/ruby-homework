@@ -1,0 +1,21 @@
+// app/assets/stylesheets/application.scss
+@import "*";
+@import 'bootstrap';
+@import 'toastr_rails';
+
+body {
+  padding-top: 3.5rem;
+}
+
+.navbar {
+  .navbar-brand {
+    img {
+      height: 2rem;
+      width: auto;
+    }
+
+    span {
+      pading-left: 0.5rem;
+    }
+  }
+}
