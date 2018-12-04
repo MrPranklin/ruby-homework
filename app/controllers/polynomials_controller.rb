@@ -36,5 +36,8 @@ class PolynomialsController < ApplicationController
 
     [first - second, first + second]
   end
+<<<<<<< HEAD
 
+=======
+>>>>>>> ac4ea3849ea9d96e14e969ae8b984887d1df1f62
 end
