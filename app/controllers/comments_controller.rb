@@ -24,11 +24,12 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    solution = params[:answer]
-    n = params[:captcha][:n]
+    # all captcha code goes here because it's supposed to check when a new comment is being created
+    solution = params[:answer]                    # get users solution from :answer (found in posts show view)
+    n = params[:captcha][:n]                      # get element :n from :captcha array
     if n.nil? || n != solution
       flash[:notice] = "Invalid captcha."
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path) # refresh if captcha is wrong
       return
     end
     @comment = Comment.new(comment_params)
