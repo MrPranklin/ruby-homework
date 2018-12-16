@@ -15,6 +15,19 @@
   <%= @post.published %>
 </p>
 
+<p>
+  <br />
+  <strong>Post a comment:</strong>
+  <%= simple_form_for Comment.new do |f| %>
+    <%= f.input :content %>
+    <%= f.button :submit %>
+  <% end %>
+<<<<<<< HEAD
+
+=======
+>>>>>>> ac4ea3849ea9d96e14e969ae8b984887d1df1f62
+</p>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
 

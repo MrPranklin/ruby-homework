@@ -1,0 +1,16 @@
+<h1>Solve captcha</h1>
+
+<%= form_tag "/captcha", method: :post do %>
+
+  <p>x + y - z = <%= @random_number %></p>
+
+  <% [:x, :y, :z].each do |var| %>
+    <p>
+      <%= label_tag(var, "#{var}:") %>
+      <%= number_field nil, var %>
+    </p>
+  <% end %>
+
+
+  <button type="submit">Solve!</button>
+<% end %>
