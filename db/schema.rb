@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_172954) do
+ActiveRecord::Schema.define(version: 2018_12_23_181011) do
 
   create_table "authors", force: :cascade do |t|
     t.string "email"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2018_12_23_172954) do
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sub_reddit_id"
+    t.string "title"
   end
 
   create_table "sub_reddits", force: :cascade do |t|
