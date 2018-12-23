@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -11,4 +13,5 @@
 #
 
 class Post < ApplicationRecord
+  has_many :comments
 end
