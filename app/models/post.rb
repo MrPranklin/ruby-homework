@@ -15,6 +15,8 @@
 
 class Post < ApplicationRecord
   has_many :comments
+  has_many :upvotes
+  belongs_to :user
   belongs_to :sub_reddits
 
   validates :title, presence: true, uniqueness: true

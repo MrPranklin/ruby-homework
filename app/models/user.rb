@@ -12,6 +12,8 @@
 class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id'
   has_many :sub_reddits
+  has_many :posts
+  has_many :upvotes
 
   validates :email, uniqueness: { scope: :username } , presence: true
 end
