@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'polynomials/:id', to: 'polynomials#show'
   post 'polynomials', to: 'polynomials#create'
 
+  get 'users', to: 'users#index'
+
 end
