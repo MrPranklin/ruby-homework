@@ -1,15 +1,13 @@
 <h1>Solve a polynomial!</h1>
 
-<%= form_tag "/polynomials", method: :post do %>
+<%= simple_form_for :operands do |f| %>
   <p><b>a</b> * X<sup>2</sup> + <b>b</b> * X + <b>c</b> = <b>d</b></p>
 
-  <% [:a, :b, :c, :d].each do |param| %>
-    <p>
-      <%= label_tag(param, "#{param}:") %>
-      <%= number_field nil, param %>
-    </p>
-  <% end %>
+  <%= f.input :a, label: 'a' %>
+  <%= f.input :b, label: 'b' %>
+  <%= f.input :c, label: 'c' %>
+  <%= f.input :d, label: 'd' %>
+  <%= f.button :submit, 'Solve!' %>
 
-  <button type="submit">Solve!</button>
 <% end %>
 
