@@ -19,12 +19,12 @@
 <%= link_to 'Back', posts_path %>
 
 <%= simple_form_for Comment.new do |f| %>
-  <% x = rand(100..999) %>                        <%# get random numbers %>
+  <% x = rand(100..999) %>
   <% y = rand(100..999) %>
   <% z = rand(100..999) %>
-  <% n = x + y - z %>                             <%# find n from the numbers %>
-
-  <%= hidden_field_tag("captcha[n]", n) %>        <%# put n in hidden_field_tag and captcha array %>
+  <%= hidden_field_tag("captcha[x]", x) %>
+  <%= hidden_field_tag("captcha[y]", y) %>
+  <%= hidden_field_tag("captcha[z]", z) %>
   <p>
     <h4>
       <br /> Solve captcha:
