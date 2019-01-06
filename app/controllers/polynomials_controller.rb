@@ -25,7 +25,6 @@ class PolynomialsController < ApplicationController
   end
 
   def solve(a, b, c, d)
-    require 'cmath'
 
     a = a.to_r
     b = b.to_r
