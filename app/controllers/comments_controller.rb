@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     solution = params[:answer]                    # get users solution from :answer (found in posts show view)
     n = params[:captcha][:n]                      # get element :n from :captcha array
     if n.nil? || n != solution
-      flash[:notice] = "Invalid captcha."
+      flash[:error] = "Invalid captcha."
       redirect_back(fallback_location: root_path) # refresh if captcha is wrong
       return
     end
