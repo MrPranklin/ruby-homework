@@ -12,10 +12,10 @@ class PolynomialsController < ApplicationController
   end
 
   def create
-    a = params[:operands][:a].to_i
-    b = params[:operands][:b].to_i
-    c = params[:operands][:c].to_i
-    d = params[:operands][:d].to_i
+    a = params[:operand][:a].to_i
+    b = params[:operand][:b].to_i
+    c = params[:operand][:c].to_i
+    d = params[:operand][:d].to_i
 
     solution = solve(a, b, c, d)
     solution = Marshal.dump(solution)
