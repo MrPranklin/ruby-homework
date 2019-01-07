@@ -5,9 +5,5 @@ Rails.application.routes.draw do
   resources :posts
   resources :authors
 
-  get 'polynomials/new', to: 'polynomials#new'
-  get 'polynomials/:id', to: 'polynomials#show'
-  post 'polynomials', to: 'polynomials#create'
-  post 'polynomials/new', to: 'polynomials#create'
-
+  resources :polynomials, only: [:show, :new, :create] 
 end
