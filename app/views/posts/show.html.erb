@@ -17,3 +17,22 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<%= simple_form_for Comment.new do |f| %>
+  <% x = rand(100..999) %>
+  <% y = rand(100..999) %>
+  <% z = rand(100..999) %>
+  <%= hidden_field_tag("captcha[x]", x) %>
+  <%= hidden_field_tag("captcha[y]", y) %>
+  <%= hidden_field_tag("captcha[z]", z) %>
+  <p>
+    <h4>
+      <br /> Solve captcha:
+      <br /><%=x%> + <%=y%> - <%=z%> =
+      <%= text_field_tag(:answer) %>              <%# get users solution from :answer in text_field_tag %>
+    </h4>
+  </p>
+
+  <%= f.input :content %>
+  <%= f.button :button%>
+<% end %>

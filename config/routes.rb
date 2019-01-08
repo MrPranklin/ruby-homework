@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  root 'landing#index'
+
   resources :comments
   resources :posts
   resources :authors
-  get 'landing/index'
-  
-  root 'landing#index'
+
+  resources :polynomials, only: [:show, :new, :create] 
 end
