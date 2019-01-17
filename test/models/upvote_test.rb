@@ -1,18 +1,19 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: upvotes
 #
 #  id         :integer          not null, primary key
-#  post_id    :integer
-#  author_id  :integer
-#  content    :text
+#  creator    :string           not null
+#  post       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  creator_id :integer
+#  post_id    :integer
 #
 
 require 'test_helper'
 
-class CommentTest < ActiveSupport::TestCase
+class UpvoteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

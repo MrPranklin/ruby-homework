@@ -1,13 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Comments</h1>
-
+<% @comments.each do |comment| %>
+  <t%= comment.post_id %>
+<% end %>
 <table>
   <thead>
     <tr>
       <th>Post</th>
       <th>Author</th>
       <th>Content</th>
+      <th>Created at:</th>
+      <th>Updated at:</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +22,8 @@
         <td><%= comment.post_id %></td>
         <td><%= comment.author_id %></td>
         <td><%= comment.content %></td>
+        <td><%= comment.created_at %></td>
+        <td><%= comment.updated_at %></td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -10,30 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_26_093242) do
-
-  create_table "authors", force: :cascade do |t|
-    t.string "email"
-    t.string "alias"
-    t.datetime "date_of_birth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2018_12_24_210219) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "author_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_id"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "author_id"
+    t.integer "author_id", null: false
     t.text "content"
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title", default: "", null: false
+    t.integer "sub_reddit_id"
+    t.index ["sub_reddit_id"], name: "index_posts_on_sub_reddit_id"
+    t.index ["title"], name: "index_posts_on_title", unique: true
+  end
+
+  create_table "sub_reddits", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.boolean "private", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_sub_reddits_on_owner_id"
+    t.index ["title"], name: "index_sub_reddits_on_title", unique: true
+  end
+
+  create_table "upvotes", force: :cascade do |t|
+    t.string "creator", null: false
+    t.string "post", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "creator_id"
+    t.integer "post_id"
+    t.index ["creator"], name: "index_upvotes_on_creator", unique: true
+    t.index ["creator_id"], name: "index_upvotes_on_creator_id"
+    t.index ["post_id"], name: "index_upvotes_on_post_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "username", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email", "username"], name: "index_users_on_email_and_username", unique: true
   end
 
 end

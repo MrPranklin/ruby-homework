@@ -15,5 +15,15 @@
   <%= @comment.content %>
 </p>
 
+<p>
+  <strong>Created at:</strong>
+  <%= @comment.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @comment.updated_at %>
+</p>
+
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>
