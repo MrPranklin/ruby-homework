@@ -12,7 +12,7 @@
 #
 
 class SubReddit < ApplicationRecord
-  belongs_to :user
+  belongs_to :owner, class_name: 'User'
   has_many :posts
 
   validates :title, presence: true, uniqueness: true
